@@ -842,13 +842,13 @@ bool VescInterface::isIntroDone()
 {
     if (mSettings.contains("introVersion")) {
         if (mSettings.value("introVersion").toInt() != VT_INTRO_VERSION) {
-            mSettings.setValue("intro_done", false);
+            mSettings.setValue("intro_done", true);
         }
     } else {
-        mSettings.setValue("intro_done", false);
+        mSettings.setValue("intro_done", true);
     }
 
-    return mSettings.value("intro_done", false).toBool();
+    return mSettings.value("intro_done", true).toBool();
 }
 
 void VescInterface::setIntroDone(bool done)

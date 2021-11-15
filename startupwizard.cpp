@@ -26,7 +26,7 @@
 StartupWizard::StartupWizard(VescInterface *vesc, QWidget *parent)
     : QWizard(parent)
 {
-    QSettings().setValue("intro_done", false);
+    QSettings().setValue("intro_done", true);
 
     setPage(Page_Intro, new StartupIntroPage(vesc));
     setPage(Page_Usage, new StartupUsagePage(vesc));

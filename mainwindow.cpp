@@ -717,17 +717,18 @@ void MainWindow::timerSlot()
     if (!has_run_start_checks) {
         if (mSettings.contains("introVersion")) {
             if (mSettings.value("introVersion").toInt() != VT_INTRO_VERSION) {
-                mSettings.setValue("intro_done", false);
+                mSettings.setValue("intro_done", true);
             }
         } else {
-            mSettings.setValue("intro_done", false);
+            mSettings.setValue("intro_done", true);
         }
 
         if (!mSettings.contains("intro_done")) {
-            mSettings.setValue("intro_done", false);
+            mSettings.setValue("intro_done", true);
         }
+        mSettings.setValue("intro_done", true);
 
-        if (!mSettings.value("intro_done").toBool()) {
+        /*if (!mSettings.value("intro_done").toBool()) {
             StartupWizard w(mVesc, this);
             w.exec();
         }
@@ -738,7 +739,7 @@ void MainWindow::timerSlot()
                                   tr("You have not finished the VESC Tool introduction. You must do that "
                                      "in order to use VESC Tool."));
             QCoreApplication::quit();
-        }
+        }*/
 
         has_run_start_checks = true;
         checkUdev();
