@@ -3341,13 +3341,6 @@ void VescInterface::fwVersionReceived(FW_RX_PARAMS params)
         }
     }
 
-    if (params.isTestFw > 0 && !VT_IS_TEST_VERSION) {
-        emitMessageDialog("Test Firmware",
-                          "The connected VESC has test firmware, and this is not a test build of VESC Tool. You should "
-                          "update the firmware urgently, as this is not a safe situation.",
-                          false, false);
-    }
-
     // Read custom configs
     if (params.customConfigNum > 0) {
         while (!mCustomConfigs.isEmpty()) {
